@@ -1,0 +1,19 @@
+<td scope="row">{{place.id}}</td>
+<td>{{place.name}}</td>
+<td>{{place.address}}</td>
+<td>{{place.opened}}</td>
+<td>{{place.square_m}}</td>
+<td class="table-button-cell">
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Details
+  </button>
+</td>
+<td class="table-button-cell">
+  <button type="button" class="btn btn-secondary" routerLink="/placeEdit/{{place.id}}">Edit</button>
+</td>
+<td class="table-button-cell">
+  <button type="button" class="btn btn-secondary">Remove</button>
+</td>
+<app-guest-details-modal [title]="'Place Details'" [keys]="getKeys()"
+                         [values]="getValues()"></app-guest-details-modal>
+

@@ -1,0 +1,67 @@
+<div *ngIf="object" class="container">
+  <form>
+    <table class="table">
+      <tr *ngFor="let key of getKeys(); let i = index">
+        <td>
+          {{key | dashCaseToFirstCapital}}
+        </td>
+        <td>
+          <input *ngIf="!isBoolean(object[key])" type="text" name="{{key}}" [(ngModel)]="object[key]" class="form-control"/>
+          <input *ngIf="isBoolean(object[key])" type="checkbox" name="{{key}}" [(ngModel)]="object[key]" class="form-control form-control-lg"/>
+        </td>
+      </tr>
+    </table>
+  </form>
+  <div class="container">
+    <div style="float: right">
+      <button type="button" class="btn btn-secondary hand-cursor" (click)="goBack()">Cancel</button>
+      <button type="button" class="btn btn-secondary hand-cursor" (click)="save()">Save</button>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="well well-sm text-center">
+
+      <h3>Checkbox</h3>
+
+      <div class="btn-group" data-toggle="buttons">
+
+        <label class="btn btn-success active">
+          <input type="checkbox" autocomplete="off" checked>
+          <span class="fa fa-check"></span>
+        </label>
+
+        <label class="btn btn-primary">
+          <input type="checkbox" autocomplete="off">
+          <span class="fa fa-check"></span>
+        </label>
+
+        <label class="btn btn-info">
+          <input type="checkbox" autocomplete="off">
+          <span class="fa fa-check"></span>
+        </label>
+
+        <label class="btn btn-default">
+          <input type="checkbox" autocomplete="off">
+          <span class="fa fa-check"></span>
+        </label>
+
+        <label class="btn btn-warning">
+          <input type="checkbox" autocomplete="off">
+          <span class="fa fa-check"></span>
+        </label>
+
+        <label class="btn btn-danger">
+          <input type="checkbox" autocomplete="off">
+          <i class="fa fa-check"></i>
+        </label>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+

@@ -1,0 +1,8 @@
+<table class="table table-hover">
+  <thead>
+    <app-header [headers]="headers"></app-header>
+  </thead>
+  <tbody>
+    <app-row *ngFor="let data of dataset" [data]="data"></app-row>
+  </tbody>
+</table>

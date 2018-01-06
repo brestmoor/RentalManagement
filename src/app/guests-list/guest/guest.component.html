@@ -1,0 +1,16 @@
+<th scope="row">{{guest.id}}</th>
+<td>{{guest.name}}</td>
+<td>{{guest.surname}}</td>
+<td>{{guest.phone}}</td>
+<td class="table-button-cell">
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Show detils
+  </button>
+</td>
+<td class="table-button-cell">
+  <button type="button" class="btn btn-secondary" routerLink="/guestEdit/{{guest.id}}">Edit</button>
+</td>
+<td class="table-button-cell">
+  <button type="button" class="btn btn-secondary">Remove</button>
+</td>
+<app-guest-details-modal [title]="'Guest Details'" [keys]="getKeys()" [values]="getValues()"></app-guest-details-modal>

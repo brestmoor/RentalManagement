@@ -1,0 +1,16 @@
+<div class="container">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">Opened</th>
+      <th scope="col">Square meters</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tr *ngFor="let place of places" app-place [place]="place">
+    </tr>
+  </table>
+</div>
