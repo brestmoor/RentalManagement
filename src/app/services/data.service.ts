@@ -19,7 +19,7 @@ export class DataService {
   constructor(private http: Http) { }
 
   getGuests() {
-    return this.http.get(this.root_url + '/guests')
+    return this.http.get(this.root_url + '/guests/')
       .map(response => response.json())
       .map(guests => guests as Guest[])
       .toPromise()
@@ -37,7 +37,7 @@ export class DataService {
   }
 
   getPlaces() {
-    return this.http.get(this.root_url + '/places')
+    return this.http.get(this.root_url + '/places/')
       .map(response => response.json())
       .map(places => places as Place[])
       .toPromise()
