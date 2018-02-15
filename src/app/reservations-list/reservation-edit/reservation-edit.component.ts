@@ -1,9 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService} from "../../services/data.service";
-import {
-  Guest, Place, Reservation, ReservationWithPersonOnly,
-  ReservationWithRelationshipsAsId, StatusChoice
-} from "../../../datatypes";
+import {Guest, Place, Reservation, ReservationWithRelationshipsAsId, StatusChoice} from "../../../datatypes";
 import {ActivatedRoute} from "@angular/router";
 import {errorToast, successToast} from "../../../toast";
 import {Location} from '@angular/common';
@@ -15,8 +12,6 @@ import "rxjs/add/operator/switchMap";
 import {GuestSearchService} from "../../services/guest-search.service";
 import "rxjs/add/operator/catch";
 import {of} from "rxjs/observable/of";
-import {ExposingKeys, ExposingValues} from "../../common/ExposingKeysAndValues";
-import {Mixin} from "../../common/mixin";
 
 
 @Component({

@@ -1,4 +1,4 @@
-import {arrayToSpaceSeparated, getKeysExceptId, getValuesExceptId} from "../../utils";
+import {getKeysExceptId, getValuesExceptId} from "../../utils";
 
 export class ExposingKeys {
   getObject : () => {};

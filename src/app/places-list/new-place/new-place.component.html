@@ -41,7 +41,7 @@
           Color
         </td>
         <td>
-          <narik-color-input name="color" [(ngModel)]="place.color"></narik-color-input>
+          <input class="color-input" [(colorPicker)]="place.color" [style.background]="place.color"/>
         </td>
       </tr>
     </table>

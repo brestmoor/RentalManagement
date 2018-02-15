@@ -11,7 +11,7 @@
             <input type="checkbox" name="{{key}}" [(ngModel)]="object[key]" class="custom-control-input"/>
             <span class="custom-control-indicator"></span>
           </label>
-          <narik-color-input *ngIf="key==='color'" name="color" [(ngModel)]="object[key]"></narik-color-input>
+          <input class="color-input" *ngIf="key==='color'" name="color" [style.background]="object[key]" [(colorPicker)]="object[key]" />
         </td>
       </tr>
     </table>

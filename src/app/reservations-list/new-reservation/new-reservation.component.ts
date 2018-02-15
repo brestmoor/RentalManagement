@@ -35,7 +35,7 @@ export class NewReservationComponent implements OnInit {
   private searchFailed: boolean;
   private hideSearchingWhenUnsubscribed = new Observable(() => () => this.searching = false);
   canEditGuest: boolean = false;
-  private submitted: boolean = false;
+  submitted: boolean = false;
 
   constructor(private dataService: DataService, private guestSearchService: GuestSearchService, private modalService: NgbModal, private location: Location) {
   }

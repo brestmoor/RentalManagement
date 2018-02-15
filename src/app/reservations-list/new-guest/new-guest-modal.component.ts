@@ -23,7 +23,7 @@ export class NewGuestModalComponent implements OnInit {
 
   @Output()
   newObject = new EventEmitter<Guest>();
-  private submitted: boolean = false;
+  submitted: boolean = false;
 
   constructor(public activeModal: NgbActiveModal) { }
 

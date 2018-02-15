@@ -1,11 +1,8 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Reservation} from "../../../datatypes";
-import {Mixin} from "../../common/mixin";
-import {ExposingKeys, ExposingValues} from "../../common/ExposingKeysAndValues";
 import {ExpandableAndRemovable} from "../../common/ExpandableAndRemovable";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {DataService} from "../../services/data.service";
-import {errorToast, successToast} from "../../../toast";
 
 @Component({
   selector: '[app-reservation]',

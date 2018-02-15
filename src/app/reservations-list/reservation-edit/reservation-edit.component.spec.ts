@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ReservationEditComponent } from './reservation-edit.component';
+import {ReservationEditComponent} from './reservation-edit.component';
 
 describe('ReservationEditComponent', () => {
   let component: ReservationEditComponent;

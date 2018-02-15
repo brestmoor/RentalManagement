@@ -1,4 +1,4 @@
-import { DateFromBeforeDateToValidatorDirective } from './date-from-before-date-to-validator.directive';
+import {DateFromBeforeDateToValidatorDirective} from './date-from-before-date-to-validator.directive';
 
 describe('DateFromBeforeDateToValidatorDirective', () => {
   it('should create an instance', () => {

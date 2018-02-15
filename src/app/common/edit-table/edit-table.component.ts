@@ -1,9 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import { Location } from '@angular/common';
-import {DataService} from "../../services/data.service";
-import {ActivatedRoute} from "@angular/router";
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {getKeysExceptId, getValuesExceptId} from "../../../utils";
-import {successToast} from "../../../toast";
 
 @Component({
   selector: 'app-edit-table',

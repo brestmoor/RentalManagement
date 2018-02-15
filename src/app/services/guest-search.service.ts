@@ -1,7 +1,6 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {DataService} from "./data.service";
 import {Observable} from 'rxjs/Rx'
-import {Guest} from "../../datatypes";
 import {of} from "rxjs/observable/of";
 
 @Injectable()

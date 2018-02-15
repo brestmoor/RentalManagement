@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { NewGuestModalComponent } from './new-guest-modal.component';
+import {NewGuestModalComponent} from './new-guest-modal.component';
 
 describe('NewGuestModalComponent', () => {
   let component: NewGuestModalComponent;

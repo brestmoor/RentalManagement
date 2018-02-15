@@ -27,3 +27,8 @@
   width: 60px;
   height: 24px;
 }
+
+.color-input {
+  border-radius: 8px;
+  border: 1px solid lightgrey;
+}

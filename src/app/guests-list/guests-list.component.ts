@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DataService} from "../services/data.service";
 import {Guest} from "../../datatypes";
 import {errorToast, successToast} from "../../toast";

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Place} from "../../datatypes";
 import {DataService} from "../services/data.service";
 import {errorToast, successToast} from "../../toast";

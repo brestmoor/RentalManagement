@@ -1,12 +1,15 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Http} from "@angular/http";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/toPromise";
 import {
-  Guest, Place, Reservation, ReservationWithPersonOnly, ReservationWithRelationshipsAsId,
+  Guest,
+  Place,
+  Reservation,
+  ReservationWithPersonOnly,
+  ReservationWithRelationshipsAsId,
   StatusChoice
 } from "../../datatypes";
-import {map} from "rxjs/operator/map";
 
 @Injectable()
 export class DataService {

@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { RowComponent } from './row.component';
+import {RowComponent} from './row.component';
 
 describe('RowComponent', () => {
   let component: RowComponent;

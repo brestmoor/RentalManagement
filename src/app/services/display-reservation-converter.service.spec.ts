@@ -1,6 +1,6 @@
-import { TestBed, inject } from '@angular/core/testing';
+import {inject, TestBed} from '@angular/core/testing';
 
-import { DisplayReservationConverterService } from './display-reservation-converter.service';
+import {DisplayReservationConverterService} from './display-reservation-converter.service';
 
 describe('DisplayReservationConverterService', () => {
   beforeEach(() => {

@@ -30,11 +30,11 @@ import {ReservationsListComponent} from './reservations-list/reservations-list.c
 import {ReservationComponent} from './reservations-list/reservation/reservation.component';
 import {ReservationEditComponent} from './reservations-list/reservation-edit/reservation-edit.component';
 import {GuestSearchService} from "./services/guest-search.service";
-import { NewReservationComponent } from './reservations-list/new-reservation/new-reservation.component';
-import { NewGuestModalComponent } from './reservations-list/new-guest/new-guest-modal.component';
-import { NewReservationModalComponent } from './calendar/new-reservation-modal/new-reservation-modal.component';
-import {ColorPickerModule} from "narik-angular-color-picker";
-import { DateFromBeforeDateToValidatorDirective } from './common/date-from-before-date-to-validator.directive';
+import {NewReservationComponent} from './reservations-list/new-reservation/new-reservation.component';
+import {NewGuestModalComponent} from './reservations-list/new-guest/new-guest-modal.component';
+import {NewReservationModalComponent} from './calendar/new-reservation-modal/new-reservation-modal.component';
+import {DateFromBeforeDateToValidatorDirective} from './common/date-from-before-date-to-validator.directive';
+import {ColorPickerModule} from "ngx-color-picker";
 
 const routes: Routes = [
   {path: 'calendar', component: CalendarComponent},
@@ -74,13 +74,14 @@ const routes: Routes = [
     NewReservationComponent,
     NewGuestModalComponent,
     NewReservationModalComponent,
-    DateFromBeforeDateToValidatorDirective,
+    DateFromBeforeDateToValidatorDirective
   ],
   imports: [
     RouterModule.forRoot(
       routes,
       // {enableTracing: true}
     ),
+    ColorPickerModule,
     BrowserModule,
     BrowserAnimationsModule,
     CommonModule,
@@ -88,7 +89,6 @@ const routes: Routes = [
     CalendarModule.forRoot(),
     NgbModalModule.forRoot(),
     HttpModule,
-    ColorPickerModule,
     NgbModule.forRoot()
   ],
   entryComponents: [DetailsModalComponent, ConfirmationModalComponent, NewGuestModalComponent],
