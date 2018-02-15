@@ -14,7 +14,7 @@ import {
 @Injectable()
 export class DataService {
 
-  root_url: string = 'http://localhost:8000';
+  root_url: string = 'https://filip-rentalmanagement.herokuapp.com';
 
   constructor(private http: Http) { }
 
