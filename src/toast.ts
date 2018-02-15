@@ -1,12 +1,11 @@
 import toastr from 'toastr';
 
 export function successToast(text: string) {
-  toastr.success('Saved successfully', null, toastr.options = {
-    "closeButton": true,
+  toastr.success(text, null, toastr.options = {
     "newestOnTop": true,
     "positionClass": "toast-top-center",
-    "showDuration": "200",
-    "hideDuration": "300",
+    "showDuration": "400",
+    "hideDuration": "400",
     "timeOut": "1500",
     "extendedTimeOut": "1000",
     "showEasing": "swing",

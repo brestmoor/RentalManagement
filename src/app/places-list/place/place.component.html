@@ -4,7 +4,7 @@
 <td>{{place.opened}}</td>
 <td>{{place.square_m}}</td>
 <td class="table-button-cell">
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  <button type="button" class="btn btn-primary" (click)="openDetailsModal()">
     Details
   </button>
 </td>
@@ -12,8 +12,6 @@
   <button type="button" class="btn btn-secondary" routerLink="/placeEdit/{{place.id}}">Edit</button>
 </td>
 <td class="table-button-cell">
-  <button type="button" class="btn btn-secondary">Remove</button>
+  <button type="button" class="btn btn-secondary" (click)="openRemoveModal()">Remove</button>
 </td>
-<app-guest-details-modal [title]="'Place Details'" [keys]="getKeys()"
-                         [values]="getValues()"></app-guest-details-modal>
 

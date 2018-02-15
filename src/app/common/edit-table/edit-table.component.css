@@ -1,6 +1,10 @@
-.btn span.glyphicon {
+.btn span.fa {
   opacity: 0;
 }
-.btn.active span.glyphicon {
+
+.checkbox {
+  border: 1px solid lightgrey;
+}
+.btn.active span.fa {
   opacity: 1;
 }

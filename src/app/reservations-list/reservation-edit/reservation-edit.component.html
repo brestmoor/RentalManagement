@@ -1,0 +1,43 @@
+
+
+<div *ngIf="reservation" class="container">
+  <form>
+    <table class="table">
+      <tr *ngFor="let key of getKeys(); let i = index">
+        <td>
+          {{key | dashCaseToFirstCapital}}
+        </td>
+        <td [ngSwitch]="key">
+          <input *ngSwitchCase="'person'" type="text" name="{{key}}" class="form-control" [class.is-invalid]="searchFailed"
+                 [(ngModel)]="reservation[key]" [ngbTypeahead]="search" [inputFormatter]="inputFormatter" [editable]="false"
+                 placeholder="Choose guest..." [resultFormatter]="inputFormatter" />
+          <div *ngSwitchCase="'place_to_rent'">
+            <select *ngIf="places && reservation" [compareWith]="byId" [(ngModel)]="reservation[key]" name="{{key}}"
+                    class="form-control">
+              <option *ngFor="let place of places" [ngValue]="place">{{ place.name }}</option>
+            </select>
+          </div>
+          <input *ngSwitchCase="('from_date')" type="date" name="{{key}}" class="form-control" [(ngModel)]="reservation[key]"/>
+          <input *ngSwitchCase="('to_date')" type="date" name="{{key}}" class="form-control" [(ngModel)]="reservation[key]"/>
+          <div *ngSwitchCase="'status'">
+            <select *ngIf="statusChoices && reservation" [compareWith]="byId" [(ngModel)]="reservation[key]"
+                    name="{{key}}" class="form-control">
+              <option *ngFor="let status of statusChoices" [ngValue]="status">{{ status.status }}</option>
+            </select>
+          </div>
+          <label *ngSwitchCase="'opened'" class="custom-control custom-checkbox">
+            <input type="checkbox" name="{{key}}" [(ngModel)]="reservation[key]" class="custom-control-input"/>
+            <span class="custom-control-indicator"></span>
+          </label>
+          <input *ngSwitchDefault type="text" name="{{key}}" [(ngModel)]="reservation[key]" class="form-control"/>
+        </td>
+      </tr>
+    </table>
+  </form>
+  <div class="container">
+    <div style="float: right">
+      <button type="button" class="btn btn-secondary hand-cursor" (click)="goBack()">Back</button>
+      <button type="button" class="btn btn-secondary hand-cursor" (click)="save()">Save</button>
+    </div>
+  </div>
+</div>

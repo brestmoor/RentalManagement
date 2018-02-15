@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Place} from "../../datatypes";
 import {DataService} from "../services/data.service";
+import {errorToast, successToast} from "../../toast";
 
 @Component({
   selector: 'app-places-list',
@@ -14,8 +15,23 @@ export class PlacesListComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.dataService.getPlaces().then(places => this.places = places)
-      .catch(error => alert(error))
+    this.getPlaces()
+  }
+
+  getPlaces() {
+    this.dataService.getPlaces()
+      .then(places => this.places = places)
+      .catch(error => errorToast(error))
+  }
+
+  removePlace(id: number) {
+    this.dataService.removePlace(id).then(() => {
+      successToast('Removed successfully');
+      this.getPlaces()
+    }).catch(() => {
+      errorToast('Something went wrong');
+      this.getPlaces()
+    })
   }
 
 }

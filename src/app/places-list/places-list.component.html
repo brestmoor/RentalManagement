@@ -10,7 +10,10 @@
       <th></th>
     </tr>
     </thead>
-    <tr *ngFor="let place of places" app-place [place]="place">
+    <tr *ngFor="let place of places" app-place [place]="place" (remove)="removePlace($event)">
     </tr>
   </table>
+  <div class="align-left-container">
+    <button class="btn btn-primary" routerLink="/newPlace">Create New</button>
+  </div>
 </div>

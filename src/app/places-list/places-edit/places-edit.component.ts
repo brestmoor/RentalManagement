@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {arrayToSpaceSeparated, getKeysInRange, getValuesInRange} from "../../../utils";
+import {Component, OnInit} from '@angular/core';
 import {Place} from "../../../datatypes";
 import {ActivatedRoute} from "@angular/router";
 import {DataService} from "../../services/data.service";
-import { Location } from '@angular/common';
+import {Location} from '@angular/common';
 import {successToast} from "../../../toast";
 
 @Component({

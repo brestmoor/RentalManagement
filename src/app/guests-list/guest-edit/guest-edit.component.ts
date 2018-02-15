@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {Guest} from "../../../datatypes";
 import {DataService} from "../../services/data.service";
 import {ActivatedRoute} from "@angular/router";
-import {arrayToSpaceSeparated, getKeysInRange, getValuesInRange, isBooleanType} from "../../../utils";
 import {Location} from '@angular/common';
 import {successToast} from "../../../toast";
 
@@ -34,7 +33,7 @@ export class GuestEditComponent implements OnInit {
   private getGuest() {
     const id = +this.route.snapshot.paramMap.get('id')
     this.dataService.getGuest(id).then(guest => this.guest = guest)
-      .catch(reason => alert(reason))
+      .catch(reason => alert("fetch failed" + reason))
   }
 
   ngOnInit() {

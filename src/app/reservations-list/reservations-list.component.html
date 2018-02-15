@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="list-container-double-line">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Place</th>
+        <th>Booked by</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Number of people</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let reservation of currentReservations" app-reservation [reservation]="reservation"
+          (remove)="onRemove($event)"></tr>
+      </tbody>
+      <div class="align-left-container">
+        <button class="btn btn-primary" routerLink="/newReservation">Create New</button>
+      </div>
+    </table>
+  </div>
+  <div class="center-container">
+    <ngb-pagination [collectionSize]="reservations.length" [(page)]="page" (pageChange)="pageChanged($event)"
+                    [pageSize]="pageSize"></ngb-pagination>
+  </div>
+</div>

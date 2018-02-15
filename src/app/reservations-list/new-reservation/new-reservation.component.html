@@ -1,0 +1,85 @@
+<div class="container">
+  <form [class.was-validated]="submitted && !htmlValidationPassed" #form="ngForm">
+    <table class="table">
+      <tr *ngFor="let key of getKeys(); let i = index">
+        <td>
+          {{key | dashCaseToFirstCapital}}
+        </td>
+        <td [ngSwitch]="key">
+          <div *ngSwitchCase="'person'"><input required type="text" name="{{key}}"
+                                               style="display:inline-block; width: 78.8%" class="form-control"
+                                               [class.is-invalid]="searchFailed"
+                                               [(ngModel)]="reservation[key]" [ngbTypeahead]="search"
+                                               [inputFormatter]="inputFormatter" [editable]="false"
+                                               (selectItem)="switchCanEditGuest()"
+                                               #person="ngModel"
+                                               placeholder="Choose guest..." [resultFormatter]="inputFormatter"/>
+
+            <button class="btn btn-primary new-reservation-button" style="margin-bottom: 4px"
+                    (click)="openNewGuestModal()">Create new
+            </button>
+            <button class="btn btn-primary new-reservation-button" [disabled]="!canEditGuest"
+                    (click)="openNewGuestModalEditMode()"><i class="fa fa-pencil"></i></button>
+            <div class="invalid-feedback">
+              You must choose guest before submitting.
+            </div>
+          </div>
+
+          <div *ngSwitchCase="'place_to_rent'">
+            <select required [(ngModel)]="reservation[key]" name="{{key}}" class="form-control">
+              <option *ngFor="let place of places" [ngValue]="place">{{ place.name }}</option>
+            </select>
+            <div class="invalid-feedback">
+              You must choose place before submitting.
+            </div>
+          </div>
+
+          <div *ngSwitchCase="('from_date')"><input required type="date" name="{{key}}" class="form-control"
+                                                    [class.is-invalid]="isToDateAfterFromDate"
+                                                    [(ngModel)]="reservation[key]" #fromDate="ngModel"/>
+            <div class="invalid-feedback" *ngIf="fromDate?.errors?.required">
+              You must specify from date before submitting.
+            </div>
+            <div class="invalid-feedback" *ngIf="isToDateAfterFromDate">
+              From date cannot be after To date
+            </div>
+          </div>
+
+          <div *ngSwitchCase="('to_date')"><input required type="date" name="{{key}}" class="form-control"
+                                                  [class.is-invalid]="isToDateAfterFromDate"
+                                                  [(ngModel)]="reservation[key]" #toDate="ngModel"/>
+            <div class="invalid-feedback" *ngIf="toDate?.errors?.required">
+              You must specify to date before submitting.
+            </div>
+            <div class="invalid-feedback" *ngIf="isToDateAfterFromDate">
+              To date cannot be before from date
+            </div>
+          </div>
+
+          <div>
+            <select *ngSwitchCase="'status'" required [(ngModel)]="reservation[key]" name="{{key}}"
+                    class="form-control">
+              <option *ngFor="let status of statusChoices" [ngValue]="status">{{ status.status }}</option>
+            </select>
+            <div class="invalid-feedback">
+              You must choose status before submitting.
+            </div>
+          </div>
+
+
+          <div *ngSwitchCase="'no_of_people'"><input required type="number" name="{{key}}" [(ngModel)]="reservation[key]"
+                                                     class="form-control"/>
+            <div class="invalid-feedback">
+              You must specify number of people before submitting.
+            </div>
+          </div>
+          <input *ngSwitchDefault type="number" name="{{key}}" [(ngModel)]="reservation[key]" class="form-control"/>
+        </td>
+      </tr>
+    </table>
+    <div style="float: right">
+      <button type="button" class="btn btn-secondary hand-cursor" (click)="goBack()">Back</button>
+      <button type="submit" class="btn btn-secondary hand-cursor" (click)="save()">Save</button>
+    </div>
+  </form>
+</div>

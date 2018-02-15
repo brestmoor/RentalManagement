@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { Location } from '@angular/common';
 import {DataService} from "../../services/data.service";
 import {ActivatedRoute} from "@angular/router";
-import {getKeysInRange, getValuesInRange} from "../../../utils";
+import {getKeysExceptId, getValuesExceptId} from "../../../utils";
 import {successToast} from "../../../toast";
 
 @Component({
@@ -12,7 +12,7 @@ import {successToast} from "../../../toast";
 })
 export class EditTableComponent {
 
-  constructor(private dataService: DataService) {
+  constructor() {
   }
 
   @Input()
@@ -25,11 +25,15 @@ export class EditTableComponent {
   back = new EventEmitter<boolean>();
 
   getKeys() {
-    return getKeysInRange(this.object, 2, Object.keys(this.object).length)
+    return getKeysExceptId(this.object)
   }
 
   getValues() {
-    return getValuesInRange(this.object, 2, Object.values(this.object).length);
+    return getValuesExceptId(this.object);
+  }
+
+  changeValue(key: any, value: any) {
+    this.object[key] = value
   }
 
   isBoolean(obj: any) {

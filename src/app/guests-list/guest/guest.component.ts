@@ -1,24 +1,39 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Guest} from "../../../datatypes";
-import {arrayToSpaceSeparated} from "../../../utils";
-
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {ExpandableAndRemovable} from "../../common/ExpandableAndRemovable";
+import {Mixin} from "../../common/mixin";
+import {ExposingKeys, ExposingValues} from "../../common/ExposingKeysAndValues";
 
 @Component({
   selector: '[app-guest]',
   templateUrl: './guest.component.html',
   styleUrls: ['./guest.component.css']
 })
-export class GuestComponent {
+@Mixin([ExposingKeys, ExposingValues])
+export class GuestComponent extends ExpandableAndRemovable{
 
   @Input()
   guest: Guest;
 
-  getKeys() {
-    let keys = Object.keys(this.guest).slice(2, Object.keys(this.guest).length);
-    return arrayToSpaceSeparated(keys)
+  @Output()
+  remove = new EventEmitter<number>();
+
+  constructor(modalService: NgbModal) {super (modalService)}
+
+  getName() {
+    return 'Guest';
   }
 
-  getValues() {
-    return Object.values(this.guest).slice(2, Object.values(this.guest).length);
+  onRemove() {
+    this.remove.emit(this.guest.id)
   }
+
+  getObject() {
+    return this.guest;
+  }
+
+  getKeys() {}
+
+  getValues() {}
 }

@@ -1,0 +1,18 @@
+<td scope="row">{{reservation.id}}</td>
+<td>{{reservation.place_to_rent.name}}</td>
+<td>{{reservation.person.name}} {{reservation.person.surname}}</td>
+<td>{{reservation.from_date}}</td>
+<td>{{reservation.to_date}}</td>
+<td>{{reservation.no_of_people}}</td>
+<td class="table-button-cell">
+  <button type="button" class="btn btn-primary" (click)="openDetailsModal()">
+    Details
+  </button>
+</td>
+<td class="table-button-cell">
+  <button type="button" class="btn btn-secondary" routerLink="/reservationEdit/{{reservation.id}}">Edit</button>
+</td>
+<td class="table-button-cell">
+  <button type="button" class="btn btn-secondary" (click)="openRemoveModal()">Remove</button>
+</td>
+

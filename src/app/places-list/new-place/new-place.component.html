@@ -1,0 +1,55 @@
+<div class="container">
+  <form>
+    <table class="table">
+      <tr>
+        <td>
+          Name
+        </td>
+        <td>
+          <input type="text" name="name" [(ngModel)]="place.name" class="form-control"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Address
+        </td>
+        <td>
+          <input type="text" name="address" [(ngModel)]="place.address" class="form-control"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Opened
+        </td>
+        <td>
+          <label class="custom-control custom-checkbox">
+            <input type="checkbox"  name="isOpened" [(ngModel)]="place.opened" class="custom-control-input"/>
+            <span class="custom-control-indicator"></span>
+          </label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Square meters
+        </td>
+        <td>
+          <input type="number" name="square_m" [(ngModel)]="place.square_m" class="form-control"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Color
+        </td>
+        <td>
+          <narik-color-input name="color" [(ngModel)]="place.color"></narik-color-input>
+        </td>
+      </tr>
+    </table>
+  </form>
+  <div class="container">
+    <div style="float: right">
+      <button type="button" class="btn btn-secondary hand-cursor" (click)="goBack()">Back</button>
+      <button type="button" class="btn btn-secondary hand-cursor" (click)="save()">Save</button>
+    </div>
+  </div>
+</div>

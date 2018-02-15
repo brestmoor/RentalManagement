@@ -10,12 +10,12 @@ export function toSpaceSeparated(word: string) {
   return words.join(" ")
 }
 
-export function getKeysInRange(obj: any, from: number, to: number) {
-  return Object.keys(obj).slice(from, to)
+export function getKeysExceptId(obj: any) {
+  return Object.keys(obj).filter(key => key !== 'id');
 }
 
-export function getValuesInRange(obj: any, from: number, to: number) {
-  return Object.values(obj).slice(from, to)
+export function getValuesExceptId(obj: any) {
+  return Object.keys(obj).filter(key => key !== 'id').map(key => obj[key]);
 }
 
 export function isBooleanType(obj: any) {

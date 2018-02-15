@@ -1,0 +1,36 @@
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel">{{title}}</h5>
+  <button type="button" class="close" (click)="activeModal.close()" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<form #form="ngForm" [class.was-validated]="submitted">
+  <div class="modal-body">
+    <table class="table" style="width: 100%">
+      <tr *ngFor="let key of getKeys(); let i = index">
+        <td>{{key | dashCaseToFirstCapital}}</td>
+        <td [ngSwitch]="key">
+          <div *ngSwitchCase="'name'"><input *ngSwitchCase="'name'" required type="text" name="{{key}}"
+                                             [(ngModel)]="object[key]" class="form-control">
+            <div class="invalid-feedback">
+              Name field cannot be empty
+            </div>
+          </div>
+          <div *ngSwitchCase="'surname'"><input *ngSwitchCase="'surname'" required type="text" name="{{key}}"
+                                                [(ngModel)]="object[key]" class="form-control">
+            <div class="invalid-feedback">
+              Surname field cannot be empty
+            </div>
+          </div>
+          <input *ngSwitchCase="'phone'" type="tel" name="{{key}}" [(ngModel)]="object[key]" class="form-control">
+          <input *ngSwitchCase="'email'" type="email" name="{{key}}" [(ngModel)]="object[key]" class="form-control">
+          <input *ngSwitchDefault type="text" name="{{key}}" [(ngModel)]="object[key]" class="form-control"/>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-secondary" (click)="onOkClick()">Ok</button>
+    <button type="button" class="btn btn-secondary" (click)="activeModal.close()">Close</button>
+  </div>
+</form>

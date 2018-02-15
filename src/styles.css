@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+.center-container {
+  display: flex;
+  justify-content: center;
+}
+
+.align-right-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.align-left-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.list-container {
+  height: 500px;
+}
+
+.list-container-double-line {
+  height: 635px;
+}
+
+.present-color {
+  border-radius: 4px;
+  width: 60px;
+  height: 24px;
+}
